@@ -6,7 +6,7 @@ const Header = ({ cartCount }) => {
   return (
     <>
       <header>
-        <h1>E-Commerce App</h1>
+        <h1>Sneakers</h1>
         <nav>
           <Link to="/">Home</Link>
           <Link to="/cart">

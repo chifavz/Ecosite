@@ -2,12 +2,14 @@ import React from 'react';
 import '../App.css'; // Adjust the path based on the location of the file
 
 function ProductCard({ product, addToCart }) {
+ 
+
   try {
     if (!product || !product.images || product.images.length === 0) {
       throw new Error('Product data is incomplete.');
     }
-
-    const firstImage = process.env.PUBLIC_URL + product.images[0];
+    const firstImage = product.images && product.images.length > 0 ? product.images[0] : null;
+    
 
     return (
       <div className="product-card">
@@ -21,7 +23,7 @@ function ProductCard({ product, addToCart }) {
     console.error('Error displaying product:', error.message);
     
     // Provide a fallback or placeholder image
-    const placeholderImage = 'images';
+    const placeholderImage = './public/image';
 
     return (
       <div className="product-card">

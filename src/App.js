@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import ProductList from './components/ProductList';
 import ProductDetails from './components/ProductDetails';
 import Cart from './components/Cart';
+import Header from './components/Header'; // Import the Header component
 
 function App() {
   const [cart, setCart] = useState([]);
@@ -17,6 +18,7 @@ function App() {
 
   return (
     <Router>
+      <Header cartCount={cart.length} /> {/* Pass the cartCount prop to Header */}
       <Routes>
         <Route path="/" element={<ProductList addToCart={addToCart} />} />
         <Route path="/product/:id" element={<ProductDetails addToCart={addToCart} />} />
@@ -27,3 +29,4 @@ function App() {
 }
 
 export default App;
+
